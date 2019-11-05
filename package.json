@@ -21,5 +21,9 @@
 		"gulp-sourcemaps": "^2.6.4",
 		"gulp-uglify": "^3.0.1"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"minimatch": ">=3.0.2",
+		"lodash": ">=4.17.13",
+		"lodash.template": ">=4.5.0"
+	}
 }

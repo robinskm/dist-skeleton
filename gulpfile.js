@@ -35,7 +35,8 @@ function js() {
 		.pipe(gulp.dest('dist/js'))
 }
 
-// move folders & its contents
+// move other folders & its contents - will have to manually add more folders from /src
+// these folders will not get copied if they are empty
 function move_files() {
 
 	var files = [
