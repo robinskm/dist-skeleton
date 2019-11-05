@@ -19,7 +19,7 @@ window.SpeedBump = (function () {
 				// }
 			});
 
-			$('#speedbump .speedbump-continue').on('click', function(){
+			$('#speedbump .speedbump-continue').on('click', function () {
 				$.fancybox.close();
 			});
 		}

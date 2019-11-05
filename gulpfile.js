@@ -1,3 +1,4 @@
+//var gulp = require('gulp');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minify = require('gulp-clean-css');
@@ -9,22 +10,8 @@ var sourcemaps = require('gulp-sourcemaps');
 // NOTE: call gulp --option lp/introduction
 // where lp/introduction is the directory to find and save files
 
-// the default task
-gulp.task('default', ['move_files', 'sass', 'scripts', 'watch'], function () {
-
-});
-
-gulp.task('build', ['move_files', 'sass', 'scripts'], function(){
-
-});
-
-// the watch task
-gulp.task('watch', function () {
-	gulp.watch('src/**/*.*', ['move_files', 'sass', 'scripts']);
-});
-
-// the sass task
-gulp.task('sass', function () {
+// sass - move & minify
+function scss() {
 	return gulp.src('src/scss/theme.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass())
@@ -36,10 +23,10 @@ gulp.task('sass', function () {
 		.pipe(sourcemaps.write('.'))
 		// move to folder
 		.pipe(gulp.dest('dist/css'))
-});
+}
 
-// the js task
-gulp.task('scripts', function () {
+// js - move & concat
+function js() {
 	return gulp.src('src/js/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(concat('theme.js'))
@@ -50,18 +37,40 @@ gulp.task('scripts', function () {
 		}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('dist/js'))
-});
+}
 
 // move files
-gulp.task('move_files', function () {
+function move_files() {
 
-  gulp.src('src/img/*')
-		.pipe(gulp.dest('dist/img'));
+	var files = [
+		'src/index.html',
+		'src/favicon.ico',
+		'src/img/*',
+		'src/fonts/*',
+	]
+	
+	return gulp.src(files, {
+		base: 'src'
+	}).pipe(gulp.dest('dist'));
+};
 
-		gulp.src('src/lang/*')
-			.pipe(gulp.dest('dist/lang'));
+// watch
+function watch() {
+	gulp.watch('src/**/*.*', gulp.series(gulp.parallel(scss, js, move_files)));
+}
 
-  gulp.src('src/fonts/*')
-      .pipe(gulp.dest('dist/fonts'));
+// the default task
+// gulp.task('default', gulp.series(gulp.parallel(scss, js, move_files, watch)), function () {
 
-});
+// });
+
+// gulp.task('build', gulp.series(gulp.parallel(scss, js, move_files)), function () {
+
+// });
+
+function build() {
+	gulp.series(scss, js, move_files)
+}
+
+exports.build = build;
+exports.default = gulp.series(scss, js, move_files, watch);
