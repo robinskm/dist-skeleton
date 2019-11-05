@@ -1,4 +1,3 @@
-//var gulp = require('gulp');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minify = require('gulp-clean-css');
@@ -36,7 +35,7 @@ function js() {
 		.pipe(gulp.dest('dist/js'))
 }
 
-// move files
+// move folders & its contents
 function move_files() {
 
 	var files = [
@@ -50,13 +49,13 @@ function move_files() {
 		.pipe(gulp.dest('dist'));
 };
 
-// watch
+// watch - update on save
 function watch() {
 	gulp.watch('src/**/*.*', gulp.series(gulp.parallel(scss, js, move_files)));
 }
 
 function build() {
-	gulp.series(scss, js, move_files)
+	gulp.series(scss, js, move_files);
 }
 
 exports.build = build;
