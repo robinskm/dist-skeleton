@@ -1,39 +1,21 @@
 .slide-in-right {
-  -webkit-animation: slide-in-right 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -moz-animation: slide-in-right 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -ms-animation: slide-in-right 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -o-animation: slide-in-right 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-right 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  @include animation('slide-in-right 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both');
 }
 
 .slide-in-left {
-  -webkit-animation: slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -moz-animation: slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -ms-animation: slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  -o-animation: slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  @include animation('slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both');
 }
 
 .fade-in {
-  -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  -moz-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  -ms-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  -o-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  @include animation('fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both');
 }
 
 .fade-out {
-  -webkit-animation: fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  -moz-animation: fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  -ms-animation: fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  -o-animation: fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  @include animation('fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both');
 }
 
 .bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
+  @include animation('bounce 2s infinite');
 }
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
