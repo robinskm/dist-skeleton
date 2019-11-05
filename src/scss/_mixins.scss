@@ -1,0 +1,63 @@
+// media queries
+// large tablet
+@mixin large-tablet {
+    @media only screen and (max-width:#{$large-tablet-width}) {
+        @content;
+    }
+}
+
+// small tablet
+@mixin small-tablet {
+    @media only screen and (max-width:#{$small-tablet-width}) {
+        @content;
+    }
+}
+
+//mobile - landscape
+@mixin mobile-landscape {
+    @media only screen and (max-width:#{$mobile-landscape-width}) and (orientation: landscape) {
+        @content;
+    }
+}
+
+// mobile - portrait
+@mixin mobile-portrait {
+    @media only screen and (max-width:#{$mobile-portrait-width}) {
+        @content;
+    }
+}
+
+// animations & keyfranes
+@mixin transform($str) {
+    -webkit-transform: #{$str};
+    -moz-transform: #{$str};
+    -ms-transform: #{$str};
+    -o-transform: #{$str};
+    transform: #{$str};      
+}
+
+@mixin animate {
+    -webkit-transition: all 350ms cubic-bezier(.25,.65,.85,1);
+    -moz-transition: all 350ms cubic-bezier(.25,.65,.85,1);
+    -ms-transition: all 350ms cubic-bezier(.25,.65,.85,1);
+    -o-transition: all 350ms cubic-bezier(.25,.65,.85,1);
+    transition: all 350ms cubic-bezier(.25,.65,.85,1);
+}
+
+// cro-bro opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//cro-bro flexbox
+@mixin flex {
+    display:flex;
+    display:-webkit-flex;
+}
+
+@mixin webkit($style, $pos) {
+    -webkit-#{$style}: $pos;
+    #{$style}: $pos;
+}

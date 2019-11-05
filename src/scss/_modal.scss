@@ -1,0 +1,29 @@
+.fancybox-active {
+    height:100% !important;
+    .fancybox-can-pan .fancybox-content, .fancybox-can-swipe .fancybox-content {
+        cursor:default;
+    }
+    .modal {
+        text-align:center;
+        p {
+            padding:25px 0;
+        }
+        .button {
+            font-weight: 700;
+            display: block;
+            text-align: center;
+            margin:25px auto;
+            span {
+                padding:15px 0;
+                display:block;
+                text-align: center;
+                background-color:$black;
+                color:$white;
+            }
+        }
+    }
+}
+
+#speedbump {
+    max-width:$screen-xs-max;
+}

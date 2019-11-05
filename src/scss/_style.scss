@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body, html {
+    background-color: $white;
+    cursor: default;
+    font-family: $font;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    text-align: left;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+.reader {
+    position: absolute;
+    left: -9000px;
+    width: 0;
+    overflow: hidden;
+}
