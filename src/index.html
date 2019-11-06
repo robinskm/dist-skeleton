@@ -19,7 +19,10 @@
 </head>
 
 <body>
-  <section>
+  <a href="#navigation"><span class="reader">Skip to navigation</span></a>
+  <a href="#main"><span class="reader">Skip to main content</span></a>
+  <section id="navigation"></section>
+  <section id="main">
     <h1>Welcome, to the Gulp Skeleton 2.0!</h1>
     <a data-fancybox href="#speedbump" data-href="https://www.google.com/" target="_blank">External links are now ADA
       Compliant!</a>
@@ -30,8 +33,8 @@
         <h2>Notice!</h2>
         <p>You're about to leave this site. Clicking continue you will bring you to an external site with different a
           privacy policy and other terms & conditions.</p>
-        <a class="button" onclick="window.parent.jQuery.fancybox.close();"><span>Back</span></a>
-        <a class="button speedbump-continue"><span>Continue</span></a>
+        <a class="button" onclick="window.parent.jQuery.fancybox.close();" role="button"><span>Back</span></a>
+        <a class="button speedbump-continue" role="button"><span>Continue</span></a>
       </div>
     </div>
   </div>

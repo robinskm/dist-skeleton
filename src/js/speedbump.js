@@ -8,7 +8,7 @@ window.SpeedBump = (function () {
 				$(this).prepend().html($(this).html() + '<span class="reader">Opens a new window</span>');
 				$(this).addClass('ext-link');
 			});
-			$('.ext-link').on('click', function (e) {
+			$('.ext-link').on('click', function () {
 				var url = $(this).attr('data-href');
 				var target = $(this).attr('target');
 				$('#speedbump .speedbump-continue').attr('href', url);

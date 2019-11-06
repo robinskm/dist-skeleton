@@ -46,7 +46,10 @@ function move_files() {
 		'src/fonts/*',
 	]
 	
-	return gulp.src(files, { base: 'src'})
+	return gulp.src(files, { 
+			base: 'src',
+			allowEmpty: true,
+		})
 		.pipe(gulp.dest('dist'));
 };
 
