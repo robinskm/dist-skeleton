@@ -6,3 +6,14 @@
   align-items:row;
   flex-wrap:wrap;
 }
+
+.button {
+  a {
+    display:inline-block;
+    span {
+      padding:10px 30px;
+      display:block;
+      text-align:center;
+    }
+  }
+}

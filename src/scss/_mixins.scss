@@ -53,21 +53,27 @@
     display:-webkit-flex;
 }
 
-// cro-bro -webkit-
-@mixin webkit($style, $pos) {
-    -webkit-#{$style}: $pos;
-    #{$style}: $pos;
-}
-
 // cro-bro transform
 @mixin transform($str) {
     -webkit-transform: #{$str};
     transform: #{$str};      
 }
+// cro-bro transition
+@mixin transition($str) {
+    -webkit-transition: #{$str};
+    transition: #{$str};      
+}
+
 // cro-bro animation
 @mixin animation($str) {
     -webkit-animation: #{$str};
     animation: #{$str};
+}
+
+// cro-bro -webkit-
+@mixin webkit($style, $pos) {
+    -webkit-#{$style}: $pos;
+    #{$style}: $pos;
 }
 
 // ADA commpliant hover

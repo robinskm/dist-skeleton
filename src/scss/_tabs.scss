@@ -1,0 +1,142 @@
+.Tabs {
+    &.outer {
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.horizontal {
+                @media(max-width:768px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    position: relative;
+                    padding-top: 0;
+                }
+                &:after {
+                    font-family: dashicons;
+                    @media(max-width:768px) {
+                        content: "\f140";
+                        font-size: 30px;
+                        top: 12px;
+                        color: rgba(255,255,255,.8);
+                        position: absolute;
+                        right: 3%;
+                        top: 12px;
+                        z-index: 9999;
+                    }
+                }
+                &.expanded {
+                    .tab {
+                        padding: 5px 10px;
+                        @media(max-width:786px) {
+                            height:auto;
+                        }
+                    }
+                }
+                .tab {
+                    @media(max-width:768px) {
+                        order: 1;
+                        margin: 0;
+                        width: 100%;
+                        border-radius: 0;
+                        height: 0;
+                        padding: 0;
+                    }
+                    cursor: pointer;
+                    visibility: visible;
+
+                    &:last-of-type {
+                        margin: 0;
+                    }
+                    &.active {
+                        @media(max-width:768px){
+                            padding: 5px 10px;
+                            order: 0;
+                            height: auto;
+                            top: initial;
+                        }
+                    }
+                    &.inactive {
+                        pointer-events:none !important;
+                    }
+                }
+            }
+        }
+        .content {
+            position: relative;
+            .tab {
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding: 0;
+
+                @include transition('.5s ease');
+    
+                &.active {
+                    width:100%;
+                    opacity: 1;
+                    height: auto;
+                    position: relative;
+                    z-index: 1;
+                    overflow: visible;
+                }
+                .container {
+                    padding:50px 0;
+                    @include transition('all 350ms cubic-bezier(.25, .65, .85, 1');
+                    @include max-width(md) {
+                        padding:2em;
+                    }
+                    .row {
+                        @include flex;
+                        align-items:flex-start;
+                        @include max-width(xlg) {
+                            display:block;
+                        }
+                        .left {
+                            @include max-width(xlg) {
+                                width:100%;
+                            }
+                            img {
+                                float: left;
+                                padding-right:25px;
+                                width:200px;
+                                @include max-width(sm) {
+                                    width:100%;
+                                    padding-right:0;
+                                    padding-bottom:30px;
+                                }
+                            }
+                            .btn {
+                                margin-top:30px;
+                            }
+                            &:after {
+                                content:'';
+                                width:100%;
+                                display:block;
+                                clear:both;
+                            }
+                        }
+                        .right {
+                            padding-left:30px;
+                            @include max-width(xlg) {
+                                width:100%;
+                                padding-left:0;
+                                padding-top:30px;
+                            }
+                            .image, .video-holder {
+                                padding-bottom:30px;
+                            }
+                        }
+                        .owl-carousel {
+                            .owl-nav {
+                                top:50%;
+                            }
+                            .owl-dots {
+                                padding-top:10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
