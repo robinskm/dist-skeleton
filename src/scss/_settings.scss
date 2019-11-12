@@ -5,20 +5,19 @@ $black: #000;
 $white: #fff;
 
 // font sizes
-$body-size: 15px;
-$h2-size:52px;
-$h3-size: 32px;
+$body-size: 18px;
+$h2-size:62px;
+$h3-size:42px;
+$h4-size:32px;
 
 //font families
 $font: Helvetica, sans-serif;
 
-// viewports
-$screen-md-max: 1024px;
-$screen-sm-max: 812px;
-$screen-xs-max: 360px;
-
-// screen sizes
-$large-tablet-width: 1024px;
-$small-tablet-width: 768px;
-$mobile-landscape-width: 812px;
-$mobile-portrait-width: 525px;
+// breakpoints
+$breakpoints: (
+  xs: 320px,
+  sm: 520px,
+  md: 768px,
+  lg: 1024px,
+  xlg: 1280px
+);

@@ -1,37 +1,50 @@
-// media queries
-// large tablet
-@mixin large-tablet {
-    @media only screen and (max-width:#{$large-tablet-width}) {
-        @content;
+// responsive breakpoints
+
+// if the breakpoint exists in the map, get the breakpoint value & write the media query.
+// otherwise, log a warning
+// @include min-width(sm) {}
+@mixin min-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
     }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
 }
 
-// small tablet
-@mixin small-tablet {
-    @media only screen and (max-width:#{$small-tablet-width}) {
-        @content;
+// @include max-width(sm) {}
+@mixin max-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
     }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
 }
 
-// mobile - landscape
-@mixin mobile-landscape {
-    @media only screen and (max-width:#{$mobile-landscape-width}) and (orientation: landscape) {
-        @content;
-    }
-}
 
-// mobile - portrait
-@mixin mobile-portrait {
-    @media only screen and (max-width:#{$mobile-portrait-width}) {
-        @content;
+// if both the lower and upper breakpoints exists in the map, get the lower and upper breakpoints & write the media query.
+// otherwise, log a warning
+// @include respond-between(sm, md) {}
+@mixin respond-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
     }
-}
-
-// cro-bro opacity
-@mixin opacity($opacity) {
-    opacity: $opacity;
-    $opacity-ie: $opacity * 100;
-    filter: alpha(opacity=$opacity-ie); //IE8
+  } @else {
+    @if (map-has-key($breakpoints, $lower) == false) {
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+    @if (map-has-key($breakpoints, $upper) == false) {
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
 }
 
 // cro-bro flexbox
@@ -49,16 +62,17 @@
 // cro-bro transform
 @mixin transform($str) {
     -webkit-transform: #{$str};
-    -moz-transform: #{$str};
-    -ms-transform: #{$str};
-    -o-transform: #{$str};
     transform: #{$str};      
 }
 // cro-bro animation
 @mixin animation($str) {
     -webkit-animation: #{$str};
-    -moz-animation: #{$str};
-    -ms-animation: #{$str};
-    -o-animation: #{$str};
     animation: #{$str};
+}
+
+// ADA commpliant hover
+@mixin hover {
+    &:hover, &:focus {
+        @content;
+    }
 }

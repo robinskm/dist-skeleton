@@ -26,5 +26,5 @@
 }
 
 #speedbump {
-    max-width:$screen-xs-max;
+    max-width:map-get($breakpoints, xs);
 }
